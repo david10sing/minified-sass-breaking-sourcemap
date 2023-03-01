@@ -1,0 +1,6 @@
+@use './test.scss' as *;
+
+.test {
+    @include background;
+    color: $color;
+    }

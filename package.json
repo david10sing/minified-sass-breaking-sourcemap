@@ -1,0 +1,20 @@
+{
+  "name": "minified-sass-breaking-sourcemap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nanospinner": "^1.1.0",
+    "sass": "^1.58.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "chalk": "^4.1.2",
+    "postcss": "^8.4.21"
+  }
+}
