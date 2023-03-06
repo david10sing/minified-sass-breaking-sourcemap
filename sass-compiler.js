@@ -46,17 +46,17 @@ async function processSass(source, output) {
   const outputPath = resolve("./dist", output);
 
   /** Run postcss transformations here */
-  const postCssResult = await postcss([autoprefixer]).process(result.css, {
-    from: source,
-    map: sourcemap && {
-      prev: result.sourceMap, // passing sourcemaps from sass so it still works
-    },
-  });
+  // const postCssResult = await postcss([autoprefixer]).process(result.css, {
+  //   from: source,
+  //   map: sourcemap && {
+  //     prev: result.sourceMap, // passing sourcemaps from sass so it still works
+  //   },
+  // });
 
   /** Write the postcss css to the output file */
   fs.writeFileSync(
     outputPath,
-    `${postCssResult.css}\n\n /*# sourceMappingURL=index.css.map */`
+    `${result.css}\n\n /*# sourceMappingURL=index.css.map */`
   );
   spinner.success({
     text: chalk.green(`Wrote ${outputPath}`),
@@ -65,7 +65,7 @@ async function processSass(source, output) {
   if (sourcemap) {
     fs.writeFileSync(
       `${outputPath}.map`,
-      JSON.stringify(postCssResult.map, null, 2)
+      JSON.stringify(result.sourceMap, null, 2)
     );
     spinner.success({
       text: chalk.green(`Wrote ${outputPath}.map`),
